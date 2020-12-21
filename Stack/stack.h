@@ -88,7 +88,7 @@ void Stack<T> ::Push(T a)
 {
 	if (Full() == true)
 	{
-		throw MaxSize;
+		throw "Push";
 	}
 	mas[Size] = a;
 	Size++;
@@ -99,7 +99,7 @@ T Stack<T> ::Pop()
 {
 	if (Empty() == true)
 	{
-		throw 0;
+		throw "Pop";
 	}
 	Size--;
 	return mas[Size];
@@ -110,7 +110,7 @@ T Stack<T> ::Top()
 {
 	if (Empty() == true)
 	{
-		throw 0;
+		throw "Top";
 	}
 	return mas[Size - 1];
 }

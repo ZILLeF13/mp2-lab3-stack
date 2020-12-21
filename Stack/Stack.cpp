@@ -9,11 +9,26 @@ using namespace std;
 
 int main()
 {
-	TCalculator calcul;
-	calcul.SetExpression("1+(2+2*2)/2");
-	calcul.ToPostfix();
-	double res = calcul.CalcPostfix();
-	cout << res;
+	try
+	{
+		setlocale(LC_ALL, "rus");
+		string s;
+		cout << "Ввод: ";
+		cin >> s; cout << endl;
+		TCalculator calcul;
+		calcul.SetExpression(s);
+		calcul.ToPostfix();
+		double res = calcul.CalcPostfix();
+		cout << res<<endl;
+	}
+	catch (const char* str)
+	{
+		cout << endl << str << endl;
+	}
+	catch (int i)
+	{
+		cout << i;
+	}
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

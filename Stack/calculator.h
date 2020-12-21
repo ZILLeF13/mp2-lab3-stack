@@ -30,7 +30,7 @@ public:
 		infix = expr;
 		if (CheckBrackets() != true)
 		{
-			throw 0;
+			throw "SetExperession";
 		}
 	}
 
@@ -44,8 +44,6 @@ public:
 	void ToPostfix();
 
 	double CalcPostfix();
-
-	double Calc();
 
 };
 
