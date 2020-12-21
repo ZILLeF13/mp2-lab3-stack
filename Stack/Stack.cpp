@@ -3,9 +3,17 @@
 
 #include <iostream>
 #include"stack.h"
+#include "calculator.h"
+
+using namespace std;
+
 int main()
 {
-    std::cout << "Hello World!\n";
+	TCalculator calcul;
+	calcul.SetExpression("1+(2+2*2)/2");
+	calcul.ToPostfix();
+	double res = calcul.CalcPostfix();
+	cout << res;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

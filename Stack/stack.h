@@ -2,7 +2,7 @@
 template <class T>
 class Stack 
 {
-	int Size; MaxSize;
+	int Size, MaxSize;
 	T* mas;
 public:
 	Stack(int _MaxSize = 10);
@@ -14,10 +14,10 @@ public:
 	bool Empty();
 	bool Full();
 	void Push(T a);
-	void Clear_Stack() { Size = 0 };
+	void Clear_Stack() { Size = 0; }
 	T Pop();
 	T Top();
-	int Size() { return Size; }
+	int size() { return Size; }
 };
 
 template <class T>
@@ -32,7 +32,7 @@ template <class T>
 Stack<T>::Stack(const Stack<T>& m)
 {
 	MaxSize = m.MaxSize;
-	Size = m.MaxSize;
+	Size = m.Size;
 	mas = new T[MaxSize];
 	for (int i = 0; i < Size; i++)
 	{
@@ -91,7 +91,7 @@ void Stack<T> ::Push(T a)
 		throw MaxSize;
 	}
 	mas[Size] = a;
-	size++;
+	Size++;
 }
 
 template <class T>
@@ -101,7 +101,7 @@ T Stack<T> ::Pop()
 	{
 		throw 0;
 	}
-	size--;
+	Size--;
 	return mas[Size];
 }
 
