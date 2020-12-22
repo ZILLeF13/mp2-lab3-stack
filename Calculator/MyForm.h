@@ -1,4 +1,8 @@
 #pragma once
+#include<iostream>
+#include <string>
+#include <msclr\marshal_cppstd.h>
+#include "..\Stack\calculator.h"
 
 namespace Calculator {
 
@@ -34,9 +38,9 @@ namespace Calculator {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^ textBox1;
-	protected:
 	private: System::Windows::Forms::Button^ button1;
+	protected:
+	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 
 	private:
@@ -52,46 +56,44 @@ namespace Calculator {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(12, 54);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(243, 26);
-			this->textBox1->TabIndex = 0;
-			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(284, 51);
+			this->button1->Location = System::Drawing::Point(281, 73);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(57, 26);
-			this->button1->TabIndex = 1;
+			this->button1->Size = System::Drawing::Size(41, 23);
+			this->button1->TabIndex = 0;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(23, 73);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(219, 26);
+			this->textBox1->TabIndex = 1;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(381, 54);
+			this->label1->Location = System::Drawing::Point(372, 78);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(51, 20);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"label1";
-			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(485, 192);
+			this->ClientSize = System::Drawing::Size(441, 244);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
@@ -99,6 +101,20 @@ namespace Calculator {
 
 		}
 #pragma endregion
-	
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		std::string infix;
+		infix = msclr::interop::marshal_as<std::string>(textBox1->Text);
+		TCalculator calcul;
+		calcul.SetExpression(infix);
+		calcul.ToPostfix();
+		double res = calcul.CalcPostfix();
+		label1->Text = Convert::ToString(res);
+	}
+	private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		if (e->KeyChar == 13)
+		{
+			button1_Click(sender, e);
+		}
+	}
 	};
 }

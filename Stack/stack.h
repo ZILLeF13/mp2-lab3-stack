@@ -21,7 +21,7 @@ public:
 };
 
 template <class T>
-Stack<T>:: Stack(int _MaxSize)
+Stack<T>::Stack(int _MaxSize)
 {
 	MaxSize = _MaxSize;
 	mas = new T[MaxSize];
@@ -122,13 +122,13 @@ int Stack<T> :: operator ==(const Stack<T>& m)
 	{
 		if ((MaxSize != m.MaxSize) || (Size != m.Size))
 		{
-			return 0;
+			return -1;
 		}
 		for (int i = 0; i < Size; i++)
 		{
 			if (mas[i] != m.mas[i])
 			{
-				return 0;
+				return -1;
 			}
 		}
 	}
