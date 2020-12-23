@@ -13,7 +13,7 @@ private:
 	Stack<double> st2;
 	int Priority(char elem);
 public:
-	
+
 	TCalculator() : st(100), st2(100)
 	{
 		infix = "";

@@ -1,17 +1,10 @@
 #include "../Stack/stack.h"
-#include "../Stack/calculator.h"
-#include "../Stack/calculator.cpp"
 #include "gtest.h"
 
 // ASSERT_NO_THROW(TBitField bf(3)); не выкидывает исключение 
 // EXPECT_EQ(3, bf.GetLength()); РАВНЫЕ
 //EXPECT_NE(0, bf.GetBit(3));
 //ASSERT_ANY_THROW(TBitField bf(-3)); выкидвывает исключение 
-
-/*TEST(calculator, 1_ne_vikidivaet_throw)
-{
-	ASSERT_NO_THROW(TCalculator calc);
-}*/
 
 TEST(stack, ne_vikidivaet_throw)
 {

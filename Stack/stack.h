@@ -5,7 +5,7 @@ class Stack
 	int Size, MaxSize;
 	T* mas;
 public:
-	Stack(int _MaxSize = 10);
+	Stack(int _MaxSize=10);
 	Stack(const Stack<T>& m);
 	~Stack();
 	Stack<T>& operator =(const Stack<T>& m);

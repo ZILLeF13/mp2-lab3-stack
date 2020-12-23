@@ -1,5 +1,5 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 #include <string>
 #include <msclr\marshal_cppstd.h>
 #include "..\Stack\calculator.h"
@@ -110,11 +110,11 @@ namespace Calculator {
 		double res = calcul.CalcPostfix();
 		label1->Text = Convert::ToString(res);
 	}
-	private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	/*private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		if (e->KeyChar == 13)
 		{
 			button1_Click(sender, e);
 		}
-	}
+	}*/
 	};
 }
