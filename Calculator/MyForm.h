@@ -3,6 +3,7 @@
 #include <string>
 #include <msclr\marshal_cppstd.h>
 #include "..\Stack\calculator.h"
+#include "..\Stack\calculator.cpp"
 
 namespace Calculator {
 
@@ -63,12 +64,13 @@ namespace Calculator {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(281, 73);
+			this->button1->Location = System::Drawing::Point(281, 60);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(41, 23);
+			this->button1->Size = System::Drawing::Size(49, 51);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click_1);
 			// 
 			// textBox1
 			// 
@@ -80,7 +82,7 @@ namespace Calculator {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(372, 78);
+			this->label1->Location = System::Drawing::Point(357, 76);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(51, 20);
 			this->label1->TabIndex = 2;
@@ -101,20 +103,20 @@ namespace Calculator {
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::string _infix;
-		_infix = msclr::interop::marshal_as<std::string>(textBox1->Text);
+	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		std::string infix;
+		infix = msclr::interop::marshal_as<std::string>(textBox1->Text);
 		TCalculator calcul;
-		calcul.SetExpression(_infix);
+		calcul.SetExpression(infix);
 		calcul.ToPostfix();
 		double res = calcul.CalcPostfix();
 		label1->Text = Convert::ToString(res);
 	}
-	/*private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		if (e->KeyChar == 13)
 		{
-			button1_Click(sender, e);
+			button1_Click_1(sender, e);
 		}
-	}*/
-	};
+	}
+};
 }
