@@ -5,29 +5,27 @@
 #include"stack.h"
 #include "calculator.h"
 
-using namespace std;
-
 int main()
 {
 	try
 	{
 		setlocale(LC_ALL, "rus");
-		string s;
-		cout << "Ввод: ";
-		cin >> s; cout << endl;
+		std::string s;
+		std::cout << "Ввод: ";
+		std::cin >> s; std::cout << std::endl;
 		TCalculator calcul;
 		calcul.SetExpression(s);
 		calcul.ToPostfix();
 		double res = calcul.CalcPostfix();
-		cout << res<<endl;
+		std::cout << res<< std::endl;
 	}
 	catch (const char* str)
 	{
-		cout << endl << str << endl;
+		std::cout << std::endl << str << std::endl;
 	}
 	catch (int i)
 	{
-		cout << i;
+		std::cout << i;
 	}
 }
 

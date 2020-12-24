@@ -2,13 +2,11 @@
 #include "stack.h"
 #include <string>
 
-using namespace std;
-
 class TCalculator
 {
 private:
-	string infix;
-	string postfix;
+	std::string infix;
+	std::string postfix;
 	Stack<char> st;
 	Stack<double> st2;
 	int Priority(char elem);
@@ -20,12 +18,12 @@ public:
 		postfix = "";
 	}
 
-	string GetExpression()
+	std::string GetExpression()
 	{
 		return infix;
 	}
 
-	void SetExpression(string expr)
+	void SetExpression(std::string expr)
 	{
 		infix = expr;
 		if (CheckBrackets() != true)
@@ -34,7 +32,7 @@ public:
 		}
 	}
 
-	string GetPostfix()
+	std::string GetPostfix()
 	{
 		return postfix;
 	}

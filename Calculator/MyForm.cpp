@@ -4,15 +4,32 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
- [STAThread]
- int main(array<String^>^ arg) {
+[STAThread]
+int main(cli::array<System::String^>^ args) {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
     Calculator::MyForm form;
     Application::Run(% form);
     return 0;
 }
+/*int main(array<String^>^ arg)
 
+
+
+array<String^>^ arg
+using namespace System;
+using namespace System::Windows::Forms;
+
+ [STAThreadAttribute]
+ int main(cli::array<System::String^>^ args) {
+    Application::EnableVisualStyles();
+    Application::SetCompatibleTextRenderingDefault(false);
+    Calculator::MyForm form;
+    Application::Run(% form);
+    return 0;
+}*/
+
+ //
 /*#include "MyForm.h"
 #include <Windows.h>
 using namespace Calculator; // Название проекта

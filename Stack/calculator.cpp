@@ -47,7 +47,7 @@ bool TCalculator::CheckBrackets()
 void TCalculator::ToPostfix()
 {
 	postfix = "";
-	string src = "(" + infix + ")";
+	std::string src = "(" + infix + ")";
 	char elem = '!';
 	unsigned int i = 0;
 	st.Clear_Stack();

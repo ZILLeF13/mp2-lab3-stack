@@ -102,10 +102,10 @@ namespace Calculator {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		std::string infix;
-		infix = msclr::interop::marshal_as<std::string>(textBox1->Text);
+		std::string _infix;
+		_infix = msclr::interop::marshal_as<std::string>(textBox1->Text);
 		TCalculator calcul;
-		calcul.SetExpression(infix);
+		calcul.SetExpression(_infix);
 		calcul.ToPostfix();
 		double res = calcul.CalcPostfix();
 		label1->Text = Convert::ToString(res);
