@@ -112,3 +112,57 @@ TEST(calculator, delenie_double_and_int)
 	double res = calc.CalcPostfix();
 	EXPECT_EQ(1, res);
 }
+
+TEST(calculator, summa_and_vichitanie_double_and_int)
+{
+	TCalculator calc;
+	calc.SetExpression("1+2.2-1.1");
+	calc.ToPostfix();
+	double res = calc.CalcPostfix();
+	EXPECT_EQ(2.1, res);
+}
+
+TEST(calculator, ymnogenie_and_delenie_double_and_int)
+{
+	TCalculator calc;
+	calc.SetExpression("2*2.2/4.4");
+	calc.ToPostfix();
+	double res = calc.CalcPostfix();
+	EXPECT_EQ(1, res);
+}
+
+TEST(calculator, slogenie_and_ymnogenie_and_delenie_double_and_int)
+{
+	TCalculator calc;
+	calc.SetExpression("2*3+2*2.2/4.4");
+	calc.ToPostfix();
+	double res = calc.CalcPostfix();
+	EXPECT_EQ(7, res);
+}
+
+TEST(calculator, vichitanie_and_ymnogenie_and_delenie_double_and_int)
+{
+	TCalculator calc;
+	calc.SetExpression("2*3-2*2.2/4.4");
+	calc.ToPostfix();
+	double res = calc.CalcPostfix();
+	EXPECT_EQ(5, res);
+}
+
+TEST(calculator, clogenie_and_vichitanie_and_ymnogenie_and_delenie_double_and_int)
+{
+	TCalculator calc;
+	calc.SetExpression("2*3-2*2.2/4.4+5*6/30");
+	calc.ToPostfix();
+	double res = calc.CalcPostfix();
+	EXPECT_EQ(6, res);
+}
+
+TEST(calculator, skobki_and_clogenie_and_vichitanie_and_ymnogenie_and_delenie_double_and_int)
+{
+	TCalculator calc;
+	calc.SetExpression("2*3-2*2.2/4.4+5*6/30+(((7+6)*2)-2)/0.5");
+	calc.ToPostfix();
+	double res = calc.CalcPostfix();
+	EXPECT_EQ(54, res);
+}

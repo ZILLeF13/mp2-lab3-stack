@@ -64,11 +64,11 @@ namespace Calculator {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(281, 60);
+			this->button1->Location = System::Drawing::Point(282, 67);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(49, 51);
+			this->button1->Size = System::Drawing::Size(45, 39);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"=";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click_1);
 			// 
@@ -84,9 +84,8 @@ namespace Calculator {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(357, 76);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(51, 20);
+			this->label1->Size = System::Drawing::Size(0, 20);
 			this->label1->TabIndex = 2;
-			this->label1->Text = L"label1";
 			// 
 			// MyForm
 			// 
